@@ -1,7 +1,7 @@
 #include "back_propagation.h"
 
 AI::AI(string trainingRef, string testingRef) {
-	//ë°ì´í„° ë¡œë“œ ì‹œì‘
+	//µ¥ÀÌÅÍ ·Îµå ½ÃÀÛ
 	ifstream dat_tr(trainingRef);
 	if (dat_tr.is_open()) {
 		double d_dat;
@@ -29,9 +29,9 @@ AI::AI(string trainingRef, string testingRef) {
 		}
 	}
 	dat_te.close();
-	//ë°ì´í„° ë¡œë“œ ë
+	//µ¥ÀÌÅÍ ·Îµå ³¡
 
-	//ë…¸ë“œ ì´ˆê¸°í™” ì‹œì‘
+	//³ëµå ÃÊ±âÈ­ ½ÃÀÛ
 	for (int i = 0; i < NUM_OF_IN_NODE; i++) {
 		inputDat[i] = 0;
 	}
@@ -47,9 +47,9 @@ AI::AI(string trainingRef, string testingRef) {
 		err_O[i] = 0;
 		del_O[i] = 0;
 	}
-	//ë…¸ë“œ ì´ˆê¸°í™” ë
+	//³ëµå ÃÊ±âÈ­ ³¡
 
-	//ê°€ì¤‘ì¹˜ ì´ˆê¸°í™” ì‹œì‘
+	//°¡ÁßÄ¡ ÃÊ±âÈ­ ½ÃÀÛ
 	for (int i = 0; i < NUM_OF_IN_NODE; i++) {
 		for (int j = 0; j < NUM_OF_HID1_NODE; j++) {
 			weight_ItoH1[i][j] = (double)rand() / RAND_MAX;
@@ -61,10 +61,10 @@ AI::AI(string trainingRef, string testingRef) {
 			weight_H1toO[i][j] = (double)rand() / RAND_MAX;
 		}
 	}
-	//ê°€ì¤‘ì¹˜ ì´ˆê¸°í™” ë
+	//°¡ÁßÄ¡ ÃÊ±âÈ­ ³¡
 }
 
-//ì…ë ¥ ë…¸ë“œ ì„¤ì •
+//ÀÔ·Â ³ëµå ¼³Á¤
 void AI::setInNode(string dataType, int dataNum) {
 	if (dataType == "training") {
 		for (int i = 0; i < NUM_OF_IN_NODE; i++) {
@@ -78,7 +78,7 @@ void AI::setInNode(string dataType, int dataNum) {
 	}
 }
 
-//NET ê³„ì‚°
+//NET °è»ê
 void AI::setNet(string location) {
 	double total;
 
@@ -102,7 +102,7 @@ void AI::setNet(string location) {
 	}
 }
 
-//OUT ê³„ì‚°
+//OUT °è»ê
 void AI::setOut(string location) {
 	if (location == "hid1") {
 		for (int i = 0; i < NUM_OF_HID1_NODE; i++) {
@@ -116,7 +116,7 @@ void AI::setOut(string location) {
 	}
 }
 
-//ERROR ê³„ì‚°
+//ERROR °è»ê
 void AI::setError(string location, int dataNum) {
 	if (location == "hid1") {
 		double total;
@@ -149,7 +149,7 @@ void AI::setError(string location, int dataNum) {
 	}
 }
 
-//DELTA ê³„ì‚°
+//DELTA °è»ê
 void AI::setDelta(string location) {
 	if (location == "hid1") {
 		for (int i = 0; i < NUM_OF_HID1_NODE; i++) {
@@ -163,7 +163,7 @@ void AI::setDelta(string location) {
 	}
 }
 
-//ê°€ì¤‘ì¹˜ ì¡°ì •
+//°¡ÁßÄ¡ Á¶Á¤
 void AI::setWeight(string location) {
 	double deltaWeight = 0;
 
@@ -185,7 +185,7 @@ void AI::setWeight(string location) {
 	}
 }
 
-//ì‹œê·¸ëª¨ì´ë“œ í•¨ìˆ˜
+//½Ã±×¸ğÀÌµå ÇÔ¼ö
 double AI::getSigmoid(double net) {
 	double out;
 
@@ -194,7 +194,7 @@ double AI::getSigmoid(double net) {
 	return out;
 }
 
-//ì‹œê·¸ëª¨ì´ë“œ ë„í•¨ìˆ˜
+//½Ã±×¸ğÀÌµå µµÇÔ¼ö
 double AI::getSigmoidPrime(double net) {
 	double out;
 
@@ -203,7 +203,7 @@ double AI::getSigmoidPrime(double net) {
 	return out;
 }
 
-//ì „ì¹˜í–‰ë ¬
+//ÀüÄ¡Çà·Ä
 void AI::setTranspose(string location) {
 	if (location == "H1toO") {
 		for (int i = 0; i < NUM_OF_HID1_NODE; i++) {
@@ -214,7 +214,7 @@ void AI::setTranspose(string location) {
 	}
 }
 
-//ERROR ì¶œë ¥
+//ERROR Ãâ·Â
 void AI::getError(int dataNum, int repeat) {
 	cout << "[training " << repeat * NUM_OF_DATA + dataNum + 1
 		 << "]e1[" << err_O[0]
@@ -224,7 +224,7 @@ void AI::getError(int dataNum, int repeat) {
 		 << endl;
 }
 
-//OUT ì¶œë ¥
+//OUT Ãâ·Â
 void AI::getOut(int dataNum) {
 	double max = out_O[0];
 	int maxNode = 0;

@@ -9,40 +9,40 @@ int main() {
 	cout << "----------------------------[ training ]----------------------------" << endl;
 	for (int repeat = 0; repeat < COUNT; repeat++) {
 		for (int dataNum = 0; dataNum < NUM_OF_DATA; dataNum++) {
-			//ë°ì´í„° ì…ë ¥
+			//µ¥ÀÌÅÍ ÀÔ·Â
 			ai.setInNode("training", dataNum);
 
-			//ì€ë‹‰ì¸µ1 NET ê³„ì‚°
+			//Àº´ĞÃş1 NET °è»ê
 			ai.setNet("hid1");
 
-			//ì€ë‹‰ì¸µ1 OUT ê³„ì‚°
+			//Àº´ĞÃş1 OUT °è»ê
 			ai.setOut("hid1");
 
-			//ì¶œë ¥ì¸µ NET ê³„ì‚°
+			//Ãâ·ÂÃş NET °è»ê
 			ai.setNet("out");
 
-			//ì¶œë ¥ì¸µ OUT ê³„ì‚°
+			//Ãâ·ÂÃş OUT °è»ê
 			ai.setOut("out");
 
-			//ì¶œë ¥ì¸µ ERROR ê³„ì‚°
+			//Ãâ·ÂÃş ERROR °è»ê
 			ai.setError("out", dataNum);
 
-			//ì¶œë ¥ì¸µ DELTA ê³„ì‚°
+			//Ãâ·ÂÃş DELTA °è»ê
 			ai.setDelta("out");
 
-			//ì€ë‹‰ì¸µ1 ERROR ê³„ì‚°
+			//Àº´ĞÃş1 ERROR °è»ê
 			ai.setError("hid1", dataNum);
 
-			//ì€ë‹‰ì¸µ1 DELTA ê³„ì‚°
+			//Àº´ĞÃş1 DELTA °è»ê
 			ai.setDelta("hid1");
 
-			//ì€ë‹‰ì¸µ1 -> ì¶œë ¥ì¸µ ê°€ì¤‘ì¹˜ ì¡°ì •
+			//Àº´ĞÃş1 -> Ãâ·ÂÃş °¡ÁßÄ¡ Á¶Á¤
 			ai.setWeight("H1toO");
 
-			//ì…ë ¥ì¸µ -> ì€ë‹‰ì¸µ1 ê°€ì¤‘ì¹˜ ì¡°ì •
+			//ÀÔ·ÂÃş -> Àº´ĞÃş1 °¡ÁßÄ¡ Á¶Á¤
 			ai.setWeight("ItoH1");
 
-			//ì—ëŸ¬ ì¶œë ¥
+			//¿¡·¯ Ãâ·Â
 			ai.getError(dataNum, repeat);
 		}
 	}
@@ -50,22 +50,22 @@ int main() {
 
 	cout << "----------------------------[ testing ]----------------------------" << endl;
 	for (int dataNum = 0; dataNum < NUM_OF_DATA; dataNum++) {
-		//ë°ì´í„° ì…ë ¥
+		//µ¥ÀÌÅÍ ÀÔ·Â
 		ai.setInNode("training", dataNum);
 
-		//ì€ë‹‰ì¸µ1 NET ê³„ì‚°
+		//Àº´ĞÃş1 NET °è»ê
 		ai.setNet("hid1");
 
-		//ì€ë‹‰ì¸µ1 OUT ê³„ì‚°
+		//Àº´ĞÃş1 OUT °è»ê
 		ai.setOut("hid1");
 
-		//ì¶œë ¥ì¸µ NET ê³„ì‚°
+		//Ãâ·ÂÃş NET °è»ê
 		ai.setNet("out");
 
-		//ì¶œë ¥ì¸µ OUT ê³„ì‚°
+		//Ãâ·ÂÃş OUT °è»ê
 		ai.setOut("out");
 		
-		//OUT ì¶œë ¥
+		//OUT Ãâ·Â
 		ai.getOut(dataNum);
 	}
 

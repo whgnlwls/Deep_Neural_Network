@@ -8,13 +8,12 @@ using namespace std;
 
 #define NUM_OF_DATA 75
 #define NUM_OF_IN_NODE 4
-#define NUM_OF_HID1_NODE 3
+#define NUM_OF_HID1_NODE 10
 #define NUM_OF_OUT_NODE 3
 
 #define ALPHA 0.3
 
-#define REPEAT 10000
-#define COUNT (REPEAT / 75) + (REPEAT % 75)
+#define COUNT 100
 
 class AI {
 private:
