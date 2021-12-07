@@ -218,7 +218,7 @@ void AI::setTranspose(string location) {
 //ERROR 출력
 void AI::getError(int dataNum, int repeat) {
 	cout << "[training " << repeat * NUM_OF_DATA + dataNum + 1
-		 << "]e1[" << err_O[0]
+		 << "]\te1[" << err_O[0]
 		 << "]\te2[" << err_O[1] 
 		 << "]\te3[" << err_O[2]
 		 << "]\te_t[" << err_O[0] + err_O[1] + err_O[2] << "]"
@@ -255,6 +255,7 @@ void AI::getOut(int dataNum) {
 		 << "]" << endl;
 }
 
+//출력 ERROR
 int AI::getErrorCount() {
 	return errorCount;
 }
