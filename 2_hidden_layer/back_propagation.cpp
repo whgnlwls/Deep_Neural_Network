@@ -59,21 +59,22 @@ AI::AI(string trainingRef, string testingRef) {
 	//노드 초기화 끝
 
 	//가중치 초기화 시작
+	srand(time(NULL));
 	for (int i = 0; i < NUM_OF_IN_NODE; i++) {
 		for (int j = 0; j < NUM_OF_HID1_NODE; j++) {
-			weight_ItoH1[i][j] = (double)rand() / RAND_MAX;
+			weight_ItoH1[i][j] = ((double)rand() / (RAND_MAX / 2)) - 1;
 		}
 	}
 
 	for (int i = 0; i < NUM_OF_HID1_NODE; i++) {
 		for (int j = 0; j < NUM_OF_HID2_NODE; j++) {
-			weight_H1toH2[i][j] = (double)rand() / RAND_MAX;
+			weight_H1toH2[i][j] = ((double)rand() / (RAND_MAX / 2)) - 1;
 		}
 	}
 
 	for (int i = 0; i < NUM_OF_HID2_NODE; i++) {
 		for (int j = 0; j < NUM_OF_OUT_NODE; j++) {
-			weight_H2toO[i][j] = (double)rand() / RAND_MAX;
+			weight_H2toO[i][j] = ((double)rand() / (RAND_MAX / 2)) - 1;
 		}
 	}
 	//가중치 초기화 끝
@@ -278,7 +279,7 @@ void AI::setTranspose(string location) {
 //ERROR 출력
 void AI::getError(int dataNum, int repeat) {
 	cout << "[training " << repeat * NUM_OF_DATA + dataNum + 1
-		 << "]e1[" << err_O[0]
+		 << "]\te1[" << err_O[0]
 		 << "]\te2[" << err_O[1] 
 		 << "]\te3[" << err_O[2]
 		 << "]\te_t[" << err_O[0] + err_O[1] + err_O[2] << "]"
@@ -296,10 +297,24 @@ void AI::getOut(int dataNum) {
 		}
 	}
 
+	if (0 <= dataNum && dataNum < 25) {
+		if (maxNode != 0) errorCount++;
+	}
+	else if (25 <= dataNum && dataNum < 50) {
+		if (maxNode != 1) errorCount++;
+	}
+	else if (50 <= dataNum && dataNum < 75) {
+		if (maxNode != 2) errorCount++;
+	}
+
 	cout << "[testing " << dataNum + 1 
 		 << "]\to1[" << out_O[0]
 		 << "]\to2[" << out_O[1]
 		 << "]\to3[" << out_O[2]
 		 << "]\tcls[" << maxNode + 1 << "]"
 		 << endl;
+}
+
+int AI::getErrorCount() {
+	return errorCount;
 }

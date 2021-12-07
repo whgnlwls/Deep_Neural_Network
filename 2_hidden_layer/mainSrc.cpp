@@ -63,7 +63,7 @@ int main() {
 	}
 	cout << endl;
 
-	cout << "----------------------------[ testing ]----------------------------" << endl;
+	cout << "----------------------------[testing]----------------------------" << endl;
 	for (int dataNum = 0; dataNum < NUM_OF_DATA; dataNum++) {
 		//데이터 입력
 		ai.setInNode("testing", dataNum);
@@ -89,7 +89,7 @@ int main() {
 		//OUT 출력
 		ai.getOut(dataNum);
 	}
-
+	cout << "---------------------------[error : " << ai.getErrorCount() << "]---------------------------" << endl;
 	
 	return 0;
 }

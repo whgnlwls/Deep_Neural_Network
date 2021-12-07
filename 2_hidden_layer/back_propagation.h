@@ -8,11 +8,11 @@ using namespace std;
 
 #define NUM_OF_DATA 75
 #define NUM_OF_IN_NODE 4
-#define NUM_OF_HID1_NODE 10
-#define NUM_OF_HID2_NODE 10
+#define NUM_OF_HID1_NODE 3
+#define NUM_OF_HID2_NODE 3
 #define NUM_OF_OUT_NODE 3
 
-#define ALPHA 0.3
+#define ALPHA 0.01
 
 #define COUNT 1000
 
@@ -48,6 +48,8 @@ private:
 	double del_O[NUM_OF_OUT_NODE];
 	double err_O[NUM_OF_OUT_NODE];
 
+	int errorCount = 0;
+
 public:
 	AI(string trainingRef, string testingRef);
 
@@ -61,6 +63,8 @@ public:
 	double getSigmoid(double net);
 	double getSigmoidPrime(double net);
 	void setTranspose(string location);
+
 	void getError(int dataNum, int repeat);
 	void getOut(int dataNum);
+	int getErrorCount();
 };
