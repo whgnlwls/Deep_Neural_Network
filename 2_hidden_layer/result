@@ -1,4 +1,10 @@
-
+NUM_OF_IN_NODE [ 4 ]
+NUM_OF_HID1_NODE [ 10 ]
+NUM_OF_HID2_NODE [ 10 ]
+NUM_OF_OUT_NODE [ 3 ]
+FIRST_WEIGHT_RANGE [ -1 <= w <= 1 ]
+ALPHA [ 0.1 ]
+LEARNING_AMOUNT_PER_DATA [ 1000 ]
 
 ----------------------------[ testing ]----------------------------
 [testing 1]     o1[0.519539]    o2[0.506758]    o3[0.0134471]   cls[1]
