@@ -315,6 +315,7 @@ void AI::getOut(int dataNum) {
 		 << endl;
 }
 
+//Ãâ·Â ERROR
 int AI::getErrorCount() {
 	return errorCount;
 }
