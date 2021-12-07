@@ -13,7 +13,7 @@ using namespace std;
 
 #define ALPHA 0.3
 
-#define COUNT 100
+#define COUNT 1000
 
 class AI {
 private:
