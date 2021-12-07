@@ -1,12 +1,12 @@
-NUM_OF_IN_NODE [ 4 ]
-NUM_OF_HID1_NODE [ 10 ]
-NUM_OF_HID2_NODE [ 10 ]
-NUM_OF_OUT_NODE [ 3 ]
-FIRST_WEIGHT_RANGE [ -1 <= w <= 1 ]
-ALPHA [ 0.1 ]
-LEARNING_AMOUNT_PER_DATA [ 1000 ]
+NUM_OF_IN_NODE [4]
+NUM_OF_HID1_NODE [10]
+NUM_OF_HID2_NODE [10]
+NUM_OF_OUT_NODE [3]
+FIRST_WEIGHT_RANGE [-1 <= w <= 1]
+ALPHA [0.1]
+LEARNING_AMOUNT_PER_DATA [1000]
 
-----------------------------[ testing ]----------------------------
+----------------------------[testing]----------------------------
 [testing 1]     o1[0.519539]    o2[0.506758]    o3[0.0134471]   cls[1]
 [testing 2]     o1[0.355889]    o2[0.651881]    o3[0.0139079]   cls[2]
 [testing 3]     o1[0.369197]    o2[0.639995]    o3[0.0138706]   cls[2]
@@ -82,4 +82,4 @@ LEARNING_AMOUNT_PER_DATA [ 1000 ]
 [testing 73]    o1[0.00407248]  o2[0.00146826]  o3[0.977183]    cls[3]
 [testing 74]    o1[0.00364708]  o2[0.00139023]  o3[0.979366]    cls[3]
 [testing 75]    o1[0.00386906]  o2[0.00141507]  o3[0.97836]     cls[3]
----------------------------[ error : 9 ]---------------------------
+---------------------------[error : 9]---------------------------
