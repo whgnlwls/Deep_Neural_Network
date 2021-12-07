@@ -68,6 +68,7 @@ int main() {
 		//OUT Ãâ·Â
 		ai.getOut(dataNum);
 	}
+	cout << "---------------------------[ error : " << ai.getErrorCount() << " ]---------------------------" << endl;
 
 	
 	return 0;

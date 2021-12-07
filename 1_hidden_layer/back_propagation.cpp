@@ -50,15 +50,16 @@ AI::AI(string trainingRef, string testingRef) {
 	//노드 초기화 끝
 
 	//가중치 초기화 시작
+	srand(time(NULL));
 	for (int i = 0; i < NUM_OF_IN_NODE; i++) {
 		for (int j = 0; j < NUM_OF_HID1_NODE; j++) {
-			weight_ItoH1[i][j] = (double)rand() / RAND_MAX;
+			weight_ItoH1[i][j] = ((double)rand() / (RAND_MAX / 2)) - 1;
 		}
 	}
 
 	for (int i = 0; i < NUM_OF_HID1_NODE; i++) {
 		for (int j = 0; j < NUM_OF_OUT_NODE; j++) {
-			weight_H1toO[i][j] = (double)rand() / RAND_MAX;
+			weight_H1toO[i][j] = ((double)rand() / (RAND_MAX / 2)) - 1;
 		}
 	}
 	//가중치 초기화 끝
@@ -228,6 +229,7 @@ void AI::getError(int dataNum, int repeat) {
 void AI::getOut(int dataNum) {
 	double max = out_O[0];
 	int maxNode = 0;
+
 	for (int i = 1; i < NUM_OF_OUT_NODE; i++) {
 		if (max < out_O[i]) {
 			max = out_O[i];
@@ -235,10 +237,24 @@ void AI::getOut(int dataNum) {
 		}
 	}
 
+	if (0 <= dataNum && dataNum < 25) {
+		if (maxNode != 0) errorCount++;
+	}
+	else if (25 <= dataNum && dataNum < 50) {
+		if (maxNode != 1) errorCount++;
+	}
+	else if (50 <= dataNum && dataNum < 75) {
+		if (maxNode != 2) errorCount++;
+	}
+
 	cout << "[testing " << dataNum + 1 
 		 << "]\to1[" << out_O[0]
 		 << "]\to2[" << out_O[1]
 		 << "]\to3[" << out_O[2]
-		 << "]\tcls[" << maxNode + 1 << "]"
-		 << endl;
+		 << "]\tcls[" << maxNode + 1 
+		 << "]" << endl;
+}
+
+int AI::getErrorCount() {
+	return errorCount;
 }
